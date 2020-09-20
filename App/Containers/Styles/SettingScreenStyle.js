@@ -1,10 +1,13 @@
-import { StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../Themes/'
+import {connect} from '../../Lib/OsmiProvider'
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: Metrics.navBarHeight,
-    backgroundColor: Colors.background
-  }
+export default connect({
+  container: 'bg-gray-100 flex',
+  body: 'flex',
+  inputView: 'flex mt-2 mb-5 mx-3',
+  inputWrapper: 'flex',
+  inputLabel: 'mb-1 font-bold',
+  inputText: 'py-2 px-2 mb-1 bg-white rounded-lg shadow-md',
+  error: 'text-red-600 mb-1',
+  btnSave: 'flex row items-center justify-center bg-blue-500 mt-3 rounded-lg shadow-md px-3 py-2',
+  btnLabel: 'text-white ml-3 font-bold text-base py-2'
 })

@@ -20,6 +20,8 @@
 		4ABC2C51B9020F5770EC8C93 /* libPods-BRIPrint-BRIPrintTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82DD2BF5DFBB6C4408703A94 /* libPods-BRIPrint-BRIPrintTests.a */; };
 		59EAABBE317B751042A583C6 /* libPods-BRIPrint-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002A604C610660D06B437423 /* libPods-BRIPrint-tvOSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C40548D2B7F24AF99995CE3E /* ArialNarrow.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 159A98F2315C4CB3B98DF1BB /* ArialNarrow.TTF */; };
+		4539FCC4DBC74D24ABA7925C /* ArrialNarrowBold.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E0D9D98AC21F4EAC98EE8F1B /* ArrialNarrowBold.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F78806519822432DDA7FA96A /* Pods-BRIPrint-BRIPrintTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BRIPrint-BRIPrintTests.debug.xcconfig"; path = "Target Support Files/Pods-BRIPrint-BRIPrintTests/Pods-BRIPrint-BRIPrintTests.debug.xcconfig"; sourceTree = "<group>"; };
+		159A98F2315C4CB3B98DF1BB /* ArialNarrow.TTF */ = {isa = PBXFileReference; name = "ArialNarrow.TTF"; path = "../App/Lib/Fonts/ArialNarrow.TTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E0D9D98AC21F4EAC98EE8F1B /* ArrialNarrowBold.TTF */ = {isa = PBXFileReference; name = "ArrialNarrowBold.TTF"; path = "../App/Lib/Fonts/ArrialNarrowBold.TTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E6FAA213F3E27AB450B364BD /* Pods */,
+				FDEA6A28CF40406A86E6BA4E /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +202,16 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		FDEA6A28CF40406A86E6BA4E /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				159A98F2315C4CB3B98DF1BB /* ArialNarrow.TTF */,
+				E0D9D98AC21F4EAC98EE8F1B /* ArrialNarrowBold.TTF */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +357,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C40548D2B7F24AF99995CE3E /* ArialNarrow.TTF in Resources */,
+				4539FCC4DBC74D24ABA7925C /* ArrialNarrowBold.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
