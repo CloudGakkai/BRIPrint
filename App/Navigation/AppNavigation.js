@@ -1,4 +1,5 @@
 import { createAppContainer } from 'react-navigation'
+import PreviewScreen from '../Containers/PreviewScreen'
 import PrintScreen from '../Containers/PrintScreen'
 import SettingScreen from '../Containers/SettingScreen'
 import HomeScreen from '../Containers/HomeScreen'
@@ -17,6 +18,7 @@ const PrimaryNav = createStackNavigator({
   },
   Print: { screen: PrintScreen },
   Setting: { screen: SettingScreen },
+  Preview: { screen: PreviewScreen },
 }, {
   // Default config for all screens
   initialRouteName: 'Home'
