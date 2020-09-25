@@ -9,7 +9,7 @@ import {
   Text
 } from 'react-native'
 import { connect } from 'react-redux'
-import { BluetoothEscposPrinter } from 'react-native-bluetooth-escpos-printer';
+import { BluetoothEscposPrinter } from '@cloudgakkai/react-native-bluetooth-escpos-printer';
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/Feather'
 

@@ -20,7 +20,7 @@ import {
   BluetoothManager,
   BluetoothEscposPrinter,
   BluetoothTscPrinter
-} from 'react-native-bluetooth-escpos-printer';
+} from '@cloudgakkai/react-native-bluetooth-escpos-printer';
 import moment from 'moment'
 import { connect } from 'react-redux'
 import SettingActions from '../Redux/SettingsRedux'
