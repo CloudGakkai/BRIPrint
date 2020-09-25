@@ -14,6 +14,8 @@ target 'BRIPrint' do
 
   pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
+  pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
+
   target 'BRIPrintTests' do
     inherit! :complete
     # Pods for testing

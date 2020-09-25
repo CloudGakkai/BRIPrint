@@ -1,43 +1,43 @@
-#  BRIPrint
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+<p align="center">
+  <h1>BRIPrint</h1><br>
+  BRIPrint is an open-source moble app for BRILink agent to print out proof of transfer in Indonesia.
+</p>
 
-* Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
+<p align="center">
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/CloudGakkai/BRIPrint.svg?style=flat" alt="LICENSE"></a>
+    <a href="https://github.com/CloudGakkai/BRIPrint/stargazers"><img src="https://img.shields.io/github/stars/CloudGakkai/BRIPrint.svg?style=flat" alt="Stars"></a>
+    <a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat" alt="JS Standard"></a>
+    <a href="https://github.com/facebook/react-native"><img src="https://img.shields.io/badge/react--native-0.63.0-blue.svg?style=flat" alt="React Native"></a>
+    <a href="https://github.com/OsmiCSX/osmicsx"><img src="https://img.shields.io/badge/osmicsx-0.5.0-orange.svg?style=flat" alt="OsmiCSX"></a>
+</p>
 
-## :arrow_up: How to Setup
+---
 
-**Step 1:** git clone this repo:
+<p align="center">
+  <img src="https://i.imgur.com/tBB9vIE.jpg" width="240px" height="507px;" />
+  <img src="https://i.imgur.com/N4wFEs1.jpg" width="240px" height="507px;" />
+</p>
 
-**Step 2:** cd to the cloned repo:
+## Prerequisites
+- Xcode or Android Studio installed and exported on your ~/.bash_profile or similar
+- JDK 1.8.x
+- Node >= 12.*
+- react-native-cli
 
-**Step 3:** Install the Application with `yarn` or `npm i`
-
-
-## :arrow_forward: How to Run App
-
-1. cd to the repo
-2. Run Build for either OS
-  * for iOS
-    * run `npx react-native run-ios`
-  * for Android
-    * Run Genymotion
-    * run `npx react-native run-android`
-
-## :no_entry_sign: Standard Compliant
-
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-This project adheres to Standard.  Our CI enforces this, so we suggest you enable linting to keep your project compliant during development.
-
-**To Lint on Commit**
-
-This is implemented using [husky](https://github.com/typicode/husky). There is no additional setup needed.
-
-**Bypass Lint**
-
-If you have to bypass lint for a special commit that you will come back and clean (pushing something to a branch etc.) then you can bypass git hooks with adding `--no-verify` to your commit command.
-
-**Understanding Linting Errors**
-
-The linting rules are from JS Standard and React-Standard.  [Regular JS errors can be found with descriptions here](http://eslint.org/docs/rules/), while [React errors and descriptions can be found here](https://github.com/yannickcr/eslint-plugin-react).
+## Installation
+open terminal and change directory to your desired folder, then:
+```
+$ git clone git@github.com:CloudGakkai/BRIPrint.git YourAppName
+$ cd YourAppName
+$ npm install
+```
+## Run Your App
+```
+$ npx react-native run-android
+$ npx react-native run-ios
+```
+## License
+The code is available at [GitHub][home] under the [MIT license][license-url].
 
 ## :closed_lock_with_key: Secrets
 
@@ -65,3 +65,13 @@ The `.env` file is ignored by git keeping those secrets out of your repo.
 2. Add your config variables
 3. Follow instructions at [https://github.com/luggit/react-native-config#setup](https://github.com/luggit/react-native-config#setup)
 4. Done!
+
+## Contributors
+Suggestions and contributions are welcome via Pull Requests.
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars3.githubusercontent.com/u/8052370" width="100px;"/><br /><sub><b>Rully Ardiansyah</b></sub>](https://github.com/DeVoresyah)<br />[💻](https://github.com/CloudGakkai/BRIPrint/commits?author=DeVoresyah "Code") [📖](https://github.com/CloudGakkai/BRIPrint/commits?author=DeVoresyah "Documentation") [💬](#question-devoresyah "Answering Questions") [👀](#review-devoresyah "Reviewed Pull Requests") [💡](#idea-devoresyah "Idea & Concept") | [<img src="https://avatars3.githubusercontent.com/u/67543151?s=460&u=d1abfe2ce47c9b2d1c8e9721c79a424df68b9b12&v=4" width="100px;"/><br /><sub><b>Rizki Budi</b></sub>](https://github.com/rizbud)<br /> [💻](https://github.com/CloudGakkai/BRIPrint/commits?author=rizbud "Code") [💬](#question-rizbud "Answering Questions") [🎨](#uiux "UI/UX") |
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+[home]: https://github.com/CloudGakkai/BRIPrint
+[license-url]: https://github.com/CloudGakkai/BRIPrint/blob/master/LICENSE
