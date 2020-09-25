@@ -34,7 +34,7 @@ const HomeScreen = (props) => {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <View style={styles.header}>
-        <Text style={styles.hi}>Hai, {props?.setting != null ? props?.setting?.data?.namaAgen : 'Agent'}!</Text>
+        <Text style={styles.hi}>Hai, {props?.setting != null ? props?.setting?.namaAgen : 'Agent'}!</Text>
         <Text style={styles.greeting}>{greeting}</Text>
       </View>
       <View style={styles.body}>
