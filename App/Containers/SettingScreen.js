@@ -95,6 +95,7 @@ const SettingScreen = (props) => {
               />
             </View>
           )}
+          <Text style={styles.error}>{formProps?.errors?.logo}</Text>
         </View>
         <View style={styles.inputWrapper}>
           <Text style={styles.inputLabel}>Nama Agen</Text>

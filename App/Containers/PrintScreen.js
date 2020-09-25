@@ -105,7 +105,7 @@ const PrintScreen = (props) => {
 
   useEffect(() => {
     BluetoothManager.isBluetoothEnabled().then((enabled)=> {
-      setBluetooth(true)
+      setBluetooth(enabled)
       setLoading(false)
     }, (err)=> {
       setBluetooth(false)

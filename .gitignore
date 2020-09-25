@@ -61,3 +61,4 @@ buck-out/
 # Misc
 #
 .env
+*.hprof
