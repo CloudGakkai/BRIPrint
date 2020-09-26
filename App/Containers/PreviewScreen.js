@@ -24,7 +24,7 @@ const PreviewScreen = (props) => {
   const dateNow = moment(new Date()).format('DD MMM, YYYY HH:mm')
 
   const maskingDebit = text => {
-    const getMaskedText = text.substring(5, 11)
+    const getMaskedText = text.substring(6, 12)
     return text.replace(getMaskedText, "******")
   }
 
