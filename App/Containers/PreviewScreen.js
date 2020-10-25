@@ -9,6 +9,7 @@ import {
   Text
 } from 'react-native'
 import { connect } from 'react-redux'
+import { PrintBRI, PrintBCA } from '../Services/Print'
 import { BluetoothEscposPrinter } from '@cloudgakkai/react-native-bluetooth-escpos-printer';
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/Feather'
@@ -24,7 +25,7 @@ const PreviewScreen = (props) => {
   const dateNow = moment(new Date()).format('DD MMM, YYYY HH:mm')
 
   const maskingDebit = text => {
-    const getMaskedText = text.substring(5, 11)
+    const getMaskedText = text.substring(6, 12)
     return text.replace(getMaskedText, "******")
   }
 
@@ -33,119 +34,10 @@ const PreviewScreen = (props) => {
   }, [])
 
   const _print = async () => {
-    const logo = setting?.logo?.data
-    const debit = maskingDebit(setting?.noDebit)
-
-    try {
-      await BluetoothEscposPrinter.printerInit();
-      await BluetoothEscposPrinter.printerLeftSpace(0);
-
-      await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.LEFT);
-      await BluetoothEscposPrinter.printPic(logo, {width: 444, left: 0})
-      await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.CENTER);
-      await BluetoothEscposPrinter.printText(`${setting?.namaAgen}\r\n`, {});
-      await BluetoothEscposPrinter.printText(`${setting?.alamatAgen}\r\n`, {});
-      await BluetoothEscposPrinter.printText("\r\n", {});
-      await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.LEFT);
-      await BluetoothEscposPrinter.printColumn(
-        [14, 18],
-        [BluetoothEscposPrinter.ALIGN.LEFT, BluetoothEscposPrinter.ALIGN.RIGHT],
-        ["MERCHANT ID :", setting?.merchantID],
-        {},
-      );
-      await BluetoothEscposPrinter.printText("\r\n", {});
-      await BluetoothEscposPrinter.printText("DEBIT (SWIPE)\r\n", {});
-      await BluetoothEscposPrinter.setBlob(1)
-      await BluetoothEscposPrinter.printText(`${debit}\r\n`, {
-        fonttype: 0,
-      });
-      await BluetoothEscposPrinter.printText("\r\n", {});
-      await BluetoothEscposPrinter.setBlob(0)
-      await BluetoothEscposPrinter.printText(`${dateNow}\r\n`, {});
-      await BluetoothEscposPrinter.setBlob(1)
-      await BluetoothEscposPrinter.printText("\r\n", {});
-      await BluetoothEscposPrinter.printText("TRANSFER BANK LAIN\r\n", {
-        widthtimes: 1,
-        heigthtimes: 1,
-        fonttype: 1,
-      });
-      await BluetoothEscposPrinter.printText("DARI TABUNGAN\r\n", {
-        widthtimes: 1,
-        heigthtimes: 1,
-        fonttype: 1,
-      });
-      await BluetoothEscposPrinter.printText("ASAL\r\n", {
-        widthtimes: 1,
-        heigthtimes: 1,
-        fonttype: 1,
-      });
-      await BluetoothEscposPrinter.setBlob(0)
-      await BluetoothEscposPrinter.printColumn(
-        [10, 22],
-        [BluetoothEscposPrinter.ALIGN.LEFT, BluetoothEscposPrinter.ALIGN.LEFT],
-        ["Bank", `: ${setting?.namaBank}`],
-        {},
-      );
-      await BluetoothEscposPrinter.printColumn(
-        [10, 22],
-        [BluetoothEscposPrinter.ALIGN.LEFT, BluetoothEscposPrinter.ALIGN.LEFT],
-        ["Nama", `: ${setting?.atasNama}`],
-        {},
-      );
-      await BluetoothEscposPrinter.printColumn(
-        [10, 22],
-        [BluetoothEscposPrinter.ALIGN.LEFT, BluetoothEscposPrinter.ALIGN.LEFT],
-        ["No. Rek", `: ${setting?.noRekAgen}`],
-        {},
-      );
-      await BluetoothEscposPrinter.setBlob(1)
-      await BluetoothEscposPrinter.printText("TUJUAN\r\n", {
-        widthtimes: 1,
-        heigthtimes: 1,
-        fonttype: 1,
-      });
-      await BluetoothEscposPrinter.setBlob(0)
-      await BluetoothEscposPrinter.printColumn(
-        [10, 22],
-        [BluetoothEscposPrinter.ALIGN.LEFT, BluetoothEscposPrinter.ALIGN.LEFT],
-        ["Bank", `: ${print?.bank}`],
-        {},
-      );
-      await BluetoothEscposPrinter.printColumn(
-        [10, 22],
-        [BluetoothEscposPrinter.ALIGN.LEFT, BluetoothEscposPrinter.ALIGN.LEFT],
-        ["Nama", `: ${print?.penerima}`],
-        {},
-      );
-      await BluetoothEscposPrinter.printColumn(
-        [10, 22],
-        [BluetoothEscposPrinter.ALIGN.LEFT, BluetoothEscposPrinter.ALIGN.LEFT],
-        ["No. Rek", `: ${print?.rekTujuan}`],
-        {},
-      );
-      await BluetoothEscposPrinter.printText("\r\n", {});
-      await BluetoothEscposPrinter.setBlob(1)
-      await BluetoothEscposPrinter.printColumn(
-        [6, 27],
-        [BluetoothEscposPrinter.ALIGN.LEFT, BluetoothEscposPrinter.ALIGN.RIGHT],
-        ["TOTAL", `Rp ${print?.nominal}`],
-        {
-          fonttype: 0,
-        },
-      );
-      await BluetoothEscposPrinter.setBlob(0)
-      await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.CENTER);
-      await BluetoothEscposPrinter.printText("\r\n\r\n", {});
-      await BluetoothEscposPrinter.printText("Informasi lebih lanjut, silahkan hubungi CONTACT BRI di 14017\r\natau 1500017\r\n", {});
-      await BluetoothEscposPrinter.printText("\r\n", {});
-      await BluetoothEscposPrinter.printText("*** Terima Kasih ***\r\n", {});
-      await BluetoothEscposPrinter.printText("\r\n", {});
-      await BluetoothEscposPrinter.printText("--- CUSTOMER COPY ---\r\n", {});
-      await BluetoothEscposPrinter.printText("\r\n\r\n\r\n", {});
-
-      ToastAndroid.show("Struk berhasil dicetak!", ToastAndroid.LONG)
-    } catch (e) {
-      ToastAndroid.show(e.message || "ERROR", ToastAndroid.LONG)
+    if(setting?.namaBank.toLowerCase().includes("bri")) {
+      PrintBRI(setting, print, dateNow)
+    } else {
+      PrintBCA(setting, print, dateNow)
     }
   }
 
@@ -157,20 +49,28 @@ const PreviewScreen = (props) => {
           style={styles.imgLogo}
         />
 
-        <View style={apply('items-center justify-center mb-5')}>
-          <Text style={[styles.normal, apply('text-center')]}>{setting?.namaAgen}</Text>
-          <Text style={[styles.normal, apply('text-center')]}>{setting?.alamatAgen}</Text>
-        </View>
+{setting?.namaBank.toLowerCase().includes("bri") ?
+          ( <View style={apply('items-center justify-center mb-5')}>
+              <Text style={[styles.normal, apply('text-center')]}>{setting?.namaAgen}</Text>
+              <Text style={[styles.normal, apply('text-center')]}>{setting?.alamatAgen}</Text>
+          </View> ) : <View />
+        }
 
-        <View style={apply('full row items-center justify-between mb-5')}>
-          <Text style={styles.normal}>MERCHANT ID :</Text>
-          <Text style={styles.normal}>{setting?.merchantID}</Text>
-        </View>
+        {setting?.namaBank.toLowerCase().includes("bri") ?
+          ( <View style={apply('full row items-center justify-between my-5')}>
+            <Text style={styles.normal}>MERCHANT ID :</Text>
+            <Text style={styles.normal}>{setting?.merchantID}</Text>
+          </View> ) : <View />
+        }
 
-        <Text style={styles.normal}>DEBIT (SWIPE)</Text>
-        <Text style={[styles.normal, apply('font-bold mb-5')]}>{maskingDebit(setting?.noDebit)}</Text>
+        {setting?.namaBank.toLowerCase().includes("bri") ?
+          ( <View>
+            <Text style={styles.normal}>DEBIT (SWIPE)</Text>
+            <Text style={[styles.normal, apply('font-bold mb-5')]}>{maskingDebit(setting?.noDebit)}</Text>
+          </View> ) : <View />
+        }
 
-        <Text style={[styles.normal, apply('mb-5')]}>{dateNow}</Text>
+        <Text style={[styles.normal, apply('my-5')]}>{dateNow}</Text>
 
         <Text style={styles.title}>TRANSFER BANK LAIN</Text>
         <Text style={styles.title}>DARI TABUNGAN</Text>
@@ -208,9 +108,14 @@ const PreviewScreen = (props) => {
         </View>
 
         <View style={apply('items-center justify-content')}>
-          <Text style={styles.textFooter}>Informasi lebih lanjut, silahkan</Text>
-          <Text style={styles.textFooter}>hubungi CONTACT BRI di 1417</Text>
-          <Text style={[styles.textFooter, apply('mb-4')]}>atau 1500017</Text>
+          {setting?.namaBank.toLowerCase().includes("bri") ?
+            ( <View>
+              <Text style={styles.textFooter}>Informasi lebih lanjut, silahkan</Text>
+              <Text style={styles.textFooter}>hubungi CONTACT BRI di 1417</Text>
+              <Text style={[styles.textFooter, apply('mb-4')]}>atau 1500017</Text>
+            </View> ) : <Text style={styles.textFooter}>STATUS: BERHASIL</Text>
+          }
+          
 
           <Text style={[styles.textFooter, apply('mb-4')]}>*** Terima Kasih ***</Text>
           <Text style={[styles.textFooter, apply('mb-7')]}>--- CUSTOMER COPY ---</Text>
