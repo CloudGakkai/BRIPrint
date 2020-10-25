@@ -124,7 +124,7 @@ export const PrintBRI = async (setting, print, dateNow) => {
   }
 }
 
-export const PrintBCA = async (setting, print, date) => {
+export const PrintBCA = async (setting, print, dateNow) => {
   const logo = setting?.logo?.data
   const debit = maskingDebit(setting?.noDebit)
 
@@ -134,7 +134,7 @@ export const PrintBCA = async (setting, print, date) => {
 
     await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.LEFT);
     logo && await BluetoothEscposPrinter.printPic(logo, {width: 444, left: 0})
-    await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.CENTER);
+    await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.LEFT);
     await BluetoothEscposPrinter.printText("\r\n", {});
     await BluetoothEscposPrinter.setBlob(0)
     await BluetoothEscposPrinter.printText(`${dateNow}\r\n`, {});
