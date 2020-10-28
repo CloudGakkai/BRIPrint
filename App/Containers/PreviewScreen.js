@@ -35,9 +35,9 @@ const PreviewScreen = (props) => {
 
   const _print = async () => {
     if(setting?.namaBank.toLowerCase().includes("bri")) {
-      PrintBRI(setting, print, dateNow)
+      await PrintBRI(setting, print, dateNow)
     } else {
-      PrintBCA(setting, print, dateNow)
+      await PrintBCA(setting, print, dateNow)
     }
   }
 
@@ -49,31 +49,39 @@ const PreviewScreen = (props) => {
           style={styles.imgLogo}
         />
 
-{setting?.namaBank.toLowerCase().includes("bri") ?
-          ( <View style={apply('items-center justify-center mb-5')}>
+        {setting?.namaBank.toLowerCase().includes("bri") && (
+          <View style={apply('items-center justify-center mb-5')}>
               <Text style={[styles.normal, apply('text-center')]}>{setting?.namaAgen}</Text>
               <Text style={[styles.normal, apply('text-center')]}>{setting?.alamatAgen}</Text>
-          </View> ) : <View />
-        }
+          </View>
+        )}
 
-        {setting?.namaBank.toLowerCase().includes("bri") ?
-          ( <View style={apply('full row items-center justify-between my-5')}>
+        {setting?.namaBank.toLowerCase().includes("bri") && (
+          <View style={apply('full row items-center justify-between my-5')}>
             <Text style={styles.normal}>MERCHANT ID :</Text>
             <Text style={styles.normal}>{setting?.merchantID}</Text>
-          </View> ) : <View />
-        }
+          </View>
+        )}
 
-        {setting?.namaBank.toLowerCase().includes("bri") ?
-          ( <View>
+        {setting?.namaBank.toLowerCase().includes("bri") && (
+          <View>
             <Text style={styles.normal}>DEBIT (SWIPE)</Text>
             <Text style={[styles.normal, apply('font-bold mb-5')]}>{maskingDebit(setting?.noDebit)}</Text>
-          </View> ) : <View />
-        }
+          </View>
+        )}
 
         <Text style={[styles.normal, apply('my-5')]}>{dateNow}</Text>
 
-        <Text style={styles.title}>TRANSFER BANK LAIN</Text>
-        <Text style={styles.title}>DARI TABUNGAN</Text>
+        {setting?.namaBank.toLowerCase().includes("bri") ? (
+          <>
+            <Text style={styles.title}>TRANSFER BANK LAIN</Text>
+            <Text style={styles.title}>DARI TABUNGAN</Text>
+          </>
+        ) : (
+          <>
+            <Text style={styles.title}>TRANSFER DARI TABUNGAN</Text>
+          </>
+        )}
         <Text style={styles.title}>ASAL</Text>
         <View style={styles.rowLeft}>
           <Text style={[styles.normal, apply("mr-5")]}>Bank</Text>
@@ -115,7 +123,7 @@ const PreviewScreen = (props) => {
               <Text style={[styles.textFooter, apply('mb-4')]}>atau 1500017</Text>
             </View> ) : <Text style={styles.textFooter}>STATUS: BERHASIL</Text>
           }
-          
+
 
           <Text style={[styles.textFooter, apply('mb-4')]}>*** Terima Kasih ***</Text>
           <Text style={[styles.textFooter, apply('mb-7')]}>--- CUSTOMER COPY ---</Text>

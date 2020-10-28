@@ -131,7 +131,6 @@ export const PrintBCA = async (setting, print, dateNow) => {
   try {
     await BluetoothEscposPrinter.printerInit();
     await BluetoothEscposPrinter.printerLeftSpace(0);
-
     await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.LEFT);
     logo && await BluetoothEscposPrinter.printPic(logo, {width: 444, left: 0})
     await BluetoothEscposPrinter.printerAlign(BluetoothEscposPrinter.ALIGN.LEFT);
@@ -140,12 +139,7 @@ export const PrintBCA = async (setting, print, dateNow) => {
     await BluetoothEscposPrinter.printText(`${dateNow}\r\n`, {});
     await BluetoothEscposPrinter.setBlob(1)
     await BluetoothEscposPrinter.printText("\r\n", {});
-    await BluetoothEscposPrinter.printText("TRANSFER BANK LAIN\r\n", {
-      widthtimes: 1,
-      heigthtimes: 1,
-      fonttype: 1,
-    });
-    await BluetoothEscposPrinter.printText("DARI TABUNGAN\r\n", {
+    await BluetoothEscposPrinter.printText("TRANSFER DARI TABUNGAN\r\n", {
       widthtimes: 1,
       heigthtimes: 1,
       fonttype: 1,
