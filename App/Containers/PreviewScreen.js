@@ -72,16 +72,7 @@ const PreviewScreen = (props) => {
 
         <Text style={[styles.normal, apply('my-5')]}>{dateNow}</Text>
 
-        {setting?.namaBank.toLowerCase().includes("bri") ? (
-          <>
-            <Text style={styles.title}>TRANSFER BANK LAIN</Text>
-            <Text style={styles.title}>DARI TABUNGAN</Text>
-          </>
-        ) : (
-          <>
-            <Text style={styles.title}>TRANSFER DARI TABUNGAN</Text>
-          </>
-        )}
+        <Text style={styles.title}>TRANSFER DARI TABUNGAN</Text>
         <Text style={styles.title}>ASAL</Text>
         <View style={styles.rowLeft}>
           <Text style={[styles.normal, apply("mr-5")]}>Bank</Text>

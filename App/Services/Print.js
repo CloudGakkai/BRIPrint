@@ -39,12 +39,7 @@ export const PrintBRI = async (setting, print, dateNow) => {
     await BluetoothEscposPrinter.printText(`${dateNow}\r\n`, {});
     await BluetoothEscposPrinter.setBlob(1)
     await BluetoothEscposPrinter.printText("\r\n", {});
-    await BluetoothEscposPrinter.printText("TRANSFER BANK LAIN\r\n", {
-      widthtimes: 1,
-      heigthtimes: 1,
-      fonttype: 1,
-    });
-    await BluetoothEscposPrinter.printText("DARI TABUNGAN\r\n", {
+    await BluetoothEscposPrinter.printText("TRANSFER DARI TABUNGAN\r\n", {
       widthtimes: 1,
       heigthtimes: 1,
       fonttype: 1,
